@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
 // Socket.io connection URL
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000';
 
 // Create socket instance
 export const socket = io(SOCKET_URL, {
@@ -43,6 +43,16 @@ export const useSocket = () => {
   // Send a private message
   const sendPrivateMessage = (to, message) => {
     socket.emit('private_message', { to, message });
+  };
+
+  // Join a room
+  const joinRoom = (room) => {
+    socket.emit('join_room', { room });
+  };
+
+  // Leave a room
+  const leaveRoom = (room) => {
+    socket.emit('leave_room', { room });
   };
 
   // Set typing status
@@ -142,6 +152,8 @@ export const useSocket = () => {
     disconnect,
     sendMessage,
     sendPrivateMessage,
+    joinRoom,
+    leaveRoom,
     setTyping,
   };
 };

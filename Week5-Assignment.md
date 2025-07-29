@@ -1,4 +1,4 @@
-# 🔄 Week 5: Real-Time Communication with Socket.io
+ # 🔄 Week 5: Real-Time Communication with Socket.io
 
 ## 🚀 Objective
 Build a real-time chat application using Socket.io that demonstrates bidirectional communication between clients and server, implementing features like live messaging, notifications, and online status updates.
